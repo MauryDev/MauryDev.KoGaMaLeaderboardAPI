@@ -2,9 +2,9 @@
 
 ## Methods
 
-- `GetLeaderboard(int count): Task<Dictionary<int,ScoreInfo>>`
+- `GetLeaderboardFromUser(Region region,int id ,int count, int page): Task<Dictionary<int,ScoreInfo>>`
 
-- `GetLeaderboardFromUser(int id ,int count): Task<Dictionary<int,ScoreInfo>>`
+- `GetLeaderboard(Region region, int count ,int page) Task<Dictionary<int,ScoreInfo>>`
 
 ## ScoreInfo
 
@@ -26,7 +26,7 @@ class Program
 {
   static void Main(string[] args)
   {
-    var scores = Leaderboard.GetLeaderboard(100).Result;
+    var scores = Leaderboard.GetLeaderboard(Region.BR,100).Result;
     foreach (var score in scores.Values)
     {
       Console.WriteLine("Position: " + FormatNumber(score.position));
